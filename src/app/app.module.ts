@@ -13,9 +13,20 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, NavBarComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    NavBarComponent,
+    AddProductComponent,
+    UpdateProductComponent,
+    ProductListComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

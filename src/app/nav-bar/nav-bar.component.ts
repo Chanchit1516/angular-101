@@ -20,6 +20,9 @@ export class NavBarComponent implements OnInit {
       (x) => (this.currentUser = x)
     );
     this.route = this.router.url;
+    router.events.subscribe((val) => {
+      this.route = this.router.url;
+    });
   }
 
   ngOnInit(): void {}
@@ -27,5 +30,9 @@ export class NavBarComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+  }
+
+  switchActive() {
+    this.route = this.router.url;
   }
 }
