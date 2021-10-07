@@ -1,9 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a>
-        <a class="nav-item nav-link" routerLink="/" (click)="logout()">Logout</a>
-    </div>
-</nav>
+<app-nav-bar *ngIf="(currentUser?.id == null) == false"></app-nav-bar>
 
 <div class="container">
     <router-outlet></router-outlet>
