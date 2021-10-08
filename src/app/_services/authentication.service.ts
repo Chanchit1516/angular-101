@@ -39,6 +39,26 @@ export class AuthenticationService {
       );
   }
 
+  register(
+    firstname: string,
+    lastname: string,
+    username: string,
+    password: string
+  ) {
+    return this.http
+      .post<any>(`${environment.apiUrl}/users/register`, {
+        firstname,
+        lastname,
+        username,
+        password,
+      })
+      .pipe(
+        map((user) => {
+          return user;
+        })
+      );
+  }
+
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');

@@ -1,9 +1,39 @@
 <div class="col-md-6 offset-md-3 mt-5">
   <div class="card">
-    <h4 class="card-header">Angular 12 JWT Login</h4>
+    <h4 class="card-header">Angular 12 Register</h4>
     <div class="card-body">
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="container">
+          <div class="form-group mb-3">
+            <label for="firstname">FirstName</label>
+            <input
+              type="text"
+              formControlName="firstname"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
+            />
+            <div
+              *ngIf="submitted && f.firstname.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.firstname.errors.required">Firstname is required</div>
+            </div>
+          </div>
+          <div class="form-group mb-3">
+            <label for="lastname">LastName</label>
+            <input
+              type="text"
+              formControlName="lastname"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"
+            />
+            <div
+              *ngIf="submitted && f.lastname.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.lastname.errors.required">Lastname is required</div>
+            </div>
+          </div>
           <div class="form-group mb-3">
             <label for="username">Username</label>
             <input
@@ -41,7 +71,7 @@
                   *ngIf="loading"
                   class="spinner-border spinner-border-sm mr-1"
                 ></span>
-                Login
+                Register
               </button>
             </div>
             <div *ngIf="error" class="alert alert-danger mt-3 mb-0">
@@ -50,11 +80,6 @@
           </div>
         </div>
       </form>
-      <div class="row mt-3">
-        <div class="col-sm-12 text-center">
-            <span>Need an account? <a routerLink="/register">Sign Up</a></span>
-        </div>
-      </div>
     </div>
   </div>
 </div>
